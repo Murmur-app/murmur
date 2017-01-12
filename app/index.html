@@ -19,7 +19,9 @@
   <meta name="msapplication-TileColor" content="#2F3BA2">
 
   <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="/bower_components/nouislider/distribute/nouislider.min.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/audioSection.css">
   <!-- endbuild -->
 </head>
 
@@ -31,37 +33,8 @@
     <div class="randomPlay"></div>
 
     <!-- List of audios -->
-    <div class="audioWrapper">
-      <audio controls>
-        <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-    <div class="audioWrapper">
-      <audio controls>
-        <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-  <div class="audioWrapper">
-    <audio controls>
-      <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-    </audio>
+    <div class="audioSection"></div>
   </div>
-  <div class="audioWrapper">
-    <audio controls>
-      <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-  <div class="audioWrapper">
-    <audio controls>
-      <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-  <div class="audioWrapper">
-    <audio controls>
-      <source src="http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-</div>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -77,18 +50,20 @@
       e.src = 'https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e, r)
     }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
+    ga('create', 'UA-90267901-1');
     ga('send', 'pageview');
   </script>
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/nouislider/distribute/nouislider.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
+  <script src="scripts/audioScript.js"></script>
   <!-- endbuild -->
 </body>
 
