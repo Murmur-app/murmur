@@ -15,11 +15,11 @@ const audioJson = (function() {
 const audioWrapper = $('.audioSection');
 
 audioJson.forEach((obj, index) => {
-  let audioImage = '<img src="./../assets/images/' + obj.image + '.png" class="audioImage audioImage' + index + '" />';
+  let audioImage = '<img src="./../assets/images/' + obj.image + '.svg" class="svg audioImage audioImage' + index + '" />';
   let audioSlider = '<div id="slider' + index + '" class="slider"></div>';
   let audioName = '<div class="audioName audioName' + index + '">' + obj.name + '</div>'
-  let audio = '<audio id="audio' + index + '" class="audio audio' + index + ' hidden" loop><source src="./../assets/audio/'+ obj.audio +'.mp3" type="audio/mpeg"></audio>';
-  let audioObjTemplate = '<div class="audioContainer" onClick="playAudio(' + index + ')">' + audioImage + audio + audioSlider + audioName + '</div>';
+  let audio = '<audio id="audio' + index + '" class="audio audio' + index + ' hidden" loop><source src="./../assets/audio/' + obj.audio + '.mp3" type="audio/mpeg"></audio>';
+  let audioObjTemplate = '<div class="audioItem audioItem' + index + '" onClick="playAudio(' + index + ')">' + audioImage + audio + audioName + audioSlider + '</div>';
 
   audioWrapper.append(audioObjTemplate);
 });
@@ -34,6 +34,8 @@ const playAudio = (audioIndex) => {
   if (currAudio.paused) {
     currAudio.play();
 
+    $('.audioItem' + audioIndex).addClass('active');
+
     noUiSlider.create(slider, {
       start: 50,
       connect: [true, false],
@@ -44,12 +46,13 @@ const playAudio = (audioIndex) => {
     });
 
     slider.noUiSlider.on('update', (values, handle) => {
-      currAudio.volume = Math.round(values[handle])/100;
+      currAudio.volume = Math.round(values[handle]) / 100;
     });
     $(".randomPlay.play").addClass( "pause" ).removeClass( "play" );
   }
   else {
     currAudio.pause();
+    $('.audioItem' + audioIndex).removeClass('active');
     slider.noUiSlider.destroy();
     let playCount = 0;
     for (let i = 0; i < audioJson.length; i++) {
@@ -110,3 +113,17 @@ const save = () => {
   }
   localStorage.setItem("audioVolumeArray", audioVolumeArray);
 }
+
+const changeActiveIcon = () => {
+
+}
+
+$(function() {
+  const obj = {
+    runMe: function() {
+      $('.audio-icon');
+      $('.icon');
+    }
+  };
+  convertToInlineSvg(obj);
+})
