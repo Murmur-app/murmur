@@ -65,7 +65,6 @@ const playAudio = (audioIndex, audioVolume = 50) => {
       $('.randomPlay.play').show();
       $('.randomPlay.pause').hide();
     }
-
   }
 }
 
@@ -83,6 +82,8 @@ const pauseAll = () => {
     }
     audioVolumeArray.push(vol);
   }
+
+  sessionStorage.setItem('audioVolumeArray', audioVolumeArray);
   // $('.randomPlay.pause').addClass( 'play' ).removeClass( 'pause' );
   $('.randomPlay.play').show();
   $('.randomPlay.pause').hide();
@@ -140,5 +141,6 @@ $(function() {
       $('.icon');
     }
   };
+  $('.randomPlay.pause').hide();
   convertToInlineSvg(obj);
 })
