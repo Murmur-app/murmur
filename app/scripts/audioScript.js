@@ -48,7 +48,9 @@ const playAudio = (audioIndex) => {
     slider.noUiSlider.on('update', (values, handle) => {
       currAudio.volume = Math.round(values[handle]) / 100;
     });
-    $(".randomPlay.play").addClass( "pause" ).removeClass( "play" );
+    // $('.randomPlay.play').addClass( 'pause' ).removeClass( 'play' );
+    $('.randomPlay.play').hide();
+    $('.randomPlay.pause').show();
   }
   else {
     currAudio.pause();
@@ -59,7 +61,9 @@ const playAudio = (audioIndex) => {
       if ($('.audio' + i)[0].paused) playCount++;
     }
     if(playCount === audioJson.length)
-      $(".randomPlay.pause").addClass( "play" ).removeClass( "pause" );
+      // $('.randomPlay.pause').addClass( 'play' ).removeClass( 'pause' );
+      $('.randomPlay.play').show();
+      $('.randomPlay.pause').hide();
   }
 }
 
@@ -76,8 +80,10 @@ const pauseAll = () => {
     }
     audioVolumeArray.push(vol);
   }
-  sessionStorage.setItem("audioVolumeArray", audioVolumeArray);
-  $(".randomPlay.pause").addClass( "play" ).removeClass( "pause" );
+  sessionStorage.setItem('audioVolumeArray', audioVolumeArray);
+  // $('.randomPlay.pause').addClass( 'play' ).removeClass( 'pause' );
+  $('.randomPlay.play').show();
+  $('.randomPlay.pause').hide();
   return playing;
 }
 
@@ -111,7 +117,7 @@ const save = () => {
     }
     audioVolumeArray.push(vol);
   }
-  localStorage.setItem("audioVolumeArray", audioVolumeArray);
+  localStorage.setItem('audioVolumeArray', audioVolumeArray);
 }
 
 const changeActiveIcon = () => {
@@ -125,5 +131,6 @@ $(function() {
       $('.icon');
     }
   };
+  $('.randomPlay.pause').hide();
   convertToInlineSvg(obj);
 })
