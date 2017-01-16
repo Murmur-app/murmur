@@ -140,6 +140,5 @@ $(function() {
       $('.icon');
     }
   };
-  $('.randomPlay.pause').hide();
   convertToInlineSvg(obj);
 })

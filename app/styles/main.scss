@@ -1,5 +1,6 @@
 // bower:scss
 // endbower
+
 @import 'colors.scss';
 @import 'mixins.scss';
 
@@ -17,7 +18,6 @@ body {
   height: 100vh;
   -webkit-tap-highlight-color: transparent;
   transform: translate3d(0,0,0);
-  
   .container {
     text-align: center;
     width: 100%;
@@ -31,7 +31,7 @@ body {
       height: 20%;
       width: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       background-color: $palette_darker;
 
