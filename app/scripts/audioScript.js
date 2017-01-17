@@ -93,11 +93,8 @@ const pauseAll = () => {
 /* Random shuffling between the available audios */
 const shuffle = () => {
   pauseAll();
-  for (var i = 0; i < audioJson.length; i++) {
-    if ((Math.random() > .5) && maxAudio) {
-      playAudio(i);
-      maxAudio--;
-    }
+  for (var i = 0; i < 4; i++) {
+    playAudio(Math.floor(Math.random()*audioJson.length));
   }
 }
 
